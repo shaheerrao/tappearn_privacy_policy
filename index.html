@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - TapWin</title>
+  <style>
+    :root {
+      --bg-dark: #050B14;
+      --bg-card: #0A1628;
+      --bg-card-hover: #0E1F38;
+      --cyan-neon: #00F2FE;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --amber-neon: #FFD600;
+      --green-neon: #00FF87;
+      --magenta-neon: #FF0055;
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --border-color: rgba(0, 242, 254, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 24px 16px 64px 16px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      padding: 32px 20px 28px 20px;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #07162C 0%, #081120 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px var(--cyan-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cyan-neon);
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid var(--cyan-neon);
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .effective-date {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--amber-neon);
+      font-weight: 600;
+    }
+
+    /* Card sections */
+    section {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      transition: border-color 0.2s ease;
+    }
+
+    section:hover {
+      border-color: rgba(0, 242, 254, 0.35);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--cyan-neon);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 16px 0 8px 0;
+    }
+
+    p {
+      color: var(--text-main);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 8px 0 14px 22px;
+      color: var(--text-main);
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #FFFFFF;
+    }
+
+    .highlight-box {
+      background: rgba(0, 242, 254, 0.06);
+      border-left: 4px solid var(--cyan-neon);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 14px 0;
+      font-size: 13.5px;
+      color: #E2E8F0;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #091E33 0%, #061526 100%);
+      border: 1px solid var(--cyan-neon);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+      box-shadow: 0 8px 24px var(--cyan-glow);
+    }
+
+    .contact-card h2 {
+      justify-content: center;
+      border-bottom: none;
+      padding-bottom: 0;
+      color: #FFFFFF;
+    }
+
+    .email-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #050B14;
+      background: linear-gradient(90deg, var(--cyan-neon) 0%, #00D2FF 100%);
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 12px 48px 12px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      section {
+        padding: 18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Official Legal Document</div>
+      <h1>Privacy Policy for TapWin</h1>
+      <div class="subtitle">1,000 Levels Speed Reflex Challenge • Arcade Gaming Application</div>
+      <div class="effective-date">Effective Date: October 30, 2026</div>
+    </header>
+
+    <section>
+      <h2>1. Introduction</h2>
+      <p>
+        Welcome to <strong>TapWin</strong> ("we," "our," or "us"). We are dedicated to protecting your personal privacy while providing an engaging, high-speed 1,000-level arcade reflex challenge. This Privacy Policy describes how we collect, use, store, and disclose information when you download, install, play, or interact with the TapWin mobile application on Android.
+      </p>
+      <p>
+        By installing or playing TapWin, you consent to the data collection and usage practices described in this policy. If you do not agree with any terms of this Privacy Policy, please discontinue use and uninstall the application.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+      <p>
+        TapWin is designed to minimize personal data collection. We collect only the data necessary to provide game mechanics, track level progression, support our virtual reward economy, and ensure connectivity:
+      </p>
+
+      <h3>A. Game Progression & In-Game Data (Stored Locally & Synced via Cloud)</h3>
+      <ul>
+        <li><strong>Level Progression:</strong> Unlocked levels (1 through 1,000), completion flags, stars awarded (0 to 3 per level), and speed bonus records.</li>
+        <li><strong>Daily Missions:</strong> Status of 3 rotating daily challenges, dates completed, and claimed mission rewards.</li>
+        <li><strong>Virtual Coins & Balances:</strong> In-game coin balance and virtual USD conversion ledger. Virtual coins and USD ledger values are internal game credits.</li>
+        <li><strong>User Preferences:</strong> Haptic vibration toggles, sound effect volume, and interstitial ad frequency settings.</li>
+      </ul>
+
+      <h3>B. Referral & Invite Information</h3>
+      <ul>
+        <li><strong>Referral Codes:</strong> The app generates a unique alphanumeric referral code (e.g., <code>TR-XXXXXX</code>) associated with your game profile.</li>
+        <li><strong>Referral Bonuses:</strong> When another player installs the app and redeems your referral code during initial onboarding, our system records the redemption to credit both the referral owner and new player with +250 bonus coins.</li>
+        <li><strong>No Contact Harvesting:</strong> TapWin <em>never</em> accesses, reads, uploads, or harvests your phone contacts or personal address book. Referral invitations are transmitted solely via the native Android system share dialog that you choose to open.</li>
+      </ul>
+
+      <h3>C. Device, Network & Diagnostic Information</h3>
+      <ul>
+        <li><strong>Network State:</strong> TapWin monitors whether your device has an active internet connection (Wi-Fi or Mobile Data). Active connectivity is required to access gameplay levels, verify referral codes, serve ads, and sync balances.</li>
+        <li><strong>Device Identifiers & Performance:</strong> Screen resolution, Android operating system version, and anonymous performance logs to ensure smooth 60fps animations.</li>
+      </ul>
+
+      <h3>D. Optional Account Authentication (Google Sign-In)</h3>
+      <ul>
+        <li><strong>Google Account Identifier:</strong> If you use Google Sign-In via Jetpack Credential Manager (or Admin Sign-In), we receive your verified Google User ID and email to associate your cloud save file and authenticate administrative privileges.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How We Use Your Information</h2>
+      <p>The information we collect is used strictly for the following purposes:</p>
+      <ul>
+        <li>To operate, save, and restore your gameplay progress across all 1,000 levels.</li>
+        <li>To calculate and distribute in-game coin rewards for level clears, daily missions, and referral sign-ups.</li>
+        <li>To serve rewarded video ads and interstitial ads in accordance with your gameplay completion.</li>
+        <li>To analyze level completion rates and session durations to balance the 1,000-level mathematical difficulty curve.</li>
+        <li>To prevent fraudulent coin generation, date tampering, or duplicated bonus claims.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services & Advertising</h2>
+      <p>
+        TapWin integrates trusted third-party SDKs to provide analytics, backend database storage, and ad monetization. These third parties have their own privacy policies governing data usage:
+      </p>
+
+      <div class="highlight-box">
+        <strong>Third-Party Providers:</strong>
+        <ul>
+          <li><strong>Google AdMob (Google Mobile Ads SDK):</strong> Used to deliver interstitial and rewarded video ads. AdMob may collect and process device advertising IDs (AAID), IP addresses, and coarse diagnostic metrics. Learn more at <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: var(--cyan-neon);">Google Ads Policy</a>.</li>
+          <li><strong>Google Firebase (Firestore, Authentication, Analytics):</strong> Used for secure database storage, cloud synchronization, and gameplay telemetry. Learn more at <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: var(--cyan-neon);">Firebase Privacy & Security</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Virtual Currency & Financial Disclaimer</h2>
+      <p>
+        TapWin features an in-game virtual currency exchange simulator displaying preview USD calculations (e.g., 1,000 coins = $1.00 USD).
+      </p>
+      <p>
+        <strong>Please Note:</strong> Coins, stars, and preview USD values displayed within the game are virtual in-game entertainment items only. They carry no real-world cash value, cannot be withdrawn directly through automated cash dispensers, and do not constitute legal tender or a financial banking instrument unless explicitly approved via authorized developer payout protocols.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Children's Privacy (COPPA & Google Play Policy)</h2>
+      <p>
+        TapWin complies with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies. TapWin is not directed to children under 13 years of age. We do not knowingly collect personally identifiable information from children under 13. If you believe that a child has provided us with personal information, please contact us immediately at <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a> and we will promptly delete such records.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Data Retention & Your Rights (Data Deletion)</h2>
+      <p>
+        We retain your game progress for as long as you maintain the application installed on your device or linked to your Google Account.
+      </p>
+      <p>
+        <strong>Your Data Rights & Deletion:</strong>
+      </p>
+      <ul>
+        <li><strong>Instant In-App Reset:</strong> You can wipe all local level progress, mission states, and coin balances at any time by navigating to <em>Settings &gt; Reset Game Data &gt; Reset Everything</em>.</li>
+        <li><strong>Cloud Data Deletion Request:</strong> If you wish to delete your cloud profile or any associated data stored in our Firebase database, email us at <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a> with the subject line <em>"Data Deletion Request - TapWin"</em>. We will process and fulfill your request within 30 days.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Security Safeguards</h2>
+      <p>
+        We employ industry-standard security measures, including local Android Room database isolation, transport-layer security (TLS 1.3) for network transmissions, and strict zero-trust Firebase Firestore security rules ensuring only authenticated users can access authorized administrative documents.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Changes to This Privacy Policy</h2>
+      <p>
+        We may update our Privacy Policy periodically to reflect changes in game features, legal requirements, or operational practices. Any modifications will be posted directly to this page with an updated "Effective Date." Continued use of the application following any changes constitutes acceptance of the revised policy.
+      </p>
+    </section>
+
+    <div class="contact-card">
+      <h2>10. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact our developer support team at:</p>
+      <a class="email-link" href="mailto:business@shaheerrao.com">business@shaheerrao.com</a>
+      <p style="margin-top: 14px; font-size: 13px; color: var(--text-muted);">
+        Developer: Shaheer Rao / TapWin Team
+      </p>
+    </div>
+
+    <footer>
+      &copy; 2026 TapWin. All rights reserved. • Fast-Paced Reflex Challenge
+    </footer>
+  </div>
+</body>
+</html>
