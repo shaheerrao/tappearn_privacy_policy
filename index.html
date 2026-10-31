@@ -42,7 +42,6 @@
       margin: 0 auto;
     }
 
-    /* Header styling */
     header {
       text-align: center;
       padding: 32px 20px 28px 20px;
@@ -90,7 +89,6 @@
       font-weight: 600;
     }
 
-    /* Card sections */
     section {
       background: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -158,6 +156,25 @@
       color: #E2E8F0;
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 13.5px;
+    }
+
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--cyan-neon);
+      font-weight: 800;
+    }
+
     .contact-card {
       background: linear-gradient(135deg, #091E33 0%, #061526 100%);
       border: 1px solid var(--cyan-neon);
@@ -220,127 +237,173 @@
       <div class="badge">Official Legal Document</div>
       <h1>Privacy Policy for TapWin</h1>
       <div class="subtitle">1,000 Levels Speed Reflex Challenge • Arcade Gaming Application</div>
-      <div class="effective-date">Effective Date: October 30, 2026</div>
+      <div class="effective-date">Effective &amp; Last Updated Date: October 30, 2026</div>
     </header>
 
     <section>
       <h2>1. Introduction</h2>
       <p>
-        Welcome to <strong>TapWin</strong> ("we," "our," or "us"). We are dedicated to protecting your personal privacy while providing an engaging, high-speed 1,000-level arcade reflex challenge. This Privacy Policy describes how we collect, use, store, and disclose information when you download, install, play, or interact with the TapWin mobile application on Android.
+        Welcome to <strong>TapWin</strong> ("we," "our," or "us"). We are committed to protecting your personal privacy while providing an engaging, high-speed 1,000-level arcade reflex challenge. This Privacy Policy explains how we collect, use, store, synchronize, and protect your information when you download, install, play, or interact with the TapWin mobile application on Android (Application ID: <code>com.aistudio.taprush.kfqm</code>).
       </p>
       <p>
-        By installing or playing TapWin, you consent to the data collection and usage practices described in this policy. If you do not agree with any terms of this Privacy Policy, please discontinue use and uninstall the application.
+        By installing or using TapWin, you consent to the data collection, storage, and synchronization practices described in this Privacy Policy. If you do not agree with any terms of this policy, please discontinue use and uninstall the application.
       </p>
     </section>
 
     <section>
       <h2>2. Information We Collect</h2>
       <p>
-        TapWin is designed to minimize personal data collection. We collect only the data necessary to provide game mechanics, track level progression, support our virtual reward economy, and ensure connectivity:
+        TapWin collects only the information required to operate gameplay levels, synchronize player progress across devices, process voluntary payout/reward requests, and display advertisements:
       </p>
 
-      <h3>A. Game Progression & In-Game Data (Stored Locally & Synced via Cloud)</h3>
+      <h3>A. Game Progression &amp; Wallet Data (Room DB &amp; Firebase Firestore Sync)</h3>
       <ul>
-        <li><strong>Level Progression:</strong> Unlocked levels (1 through 1,000), completion flags, stars awarded (0 to 3 per level), and speed bonus records.</li>
-        <li><strong>Daily Missions:</strong> Status of 3 rotating daily challenges, dates completed, and claimed mission rewards.</li>
-        <li><strong>Virtual Coins & Balances:</strong> In-game coin balance and virtual USD conversion ledger. Virtual coins and USD ledger values are internal game credits.</li>
-        <li><strong>User Preferences:</strong> Haptic vibration toggles, sound effect volume, and interstitial ad frequency settings.</li>
+        <li><strong>Level Progression:</strong> Unlocked levels (Levels 1 through 1,000), completion flags, stars earned (0 to 3 per level), best times, taps-per-second (CPS), and speed bonus records.</li>
+        <li><strong>Daily Missions:</strong> Progress on 3 daily challenges, completion dates, and claimed coin rewards.</li>
+        <li><strong>Coin &amp; Currency Exchange Balances:</strong> In-game coin balance (<code>coinBalance</code>), converted currency balance (<code>currencyBalanceCents</code>), and exchange transaction history synced to <code>/user_profiles</code>, <code>/exchange_configs</code>, and <code>/exchange_transactions</code> in Firebase Firestore.</li>
+        <li><strong>User Preferences:</strong> Sound effects, haptic vibration settings, orb theme unlocks, and ad frequency settings.</li>
       </ul>
 
-      <h3>B. Referral & Invite Information</h3>
+      <h3>B. Payment &amp; Payout Request Information (Voluntary User Submission)</h3>
       <ul>
-        <li><strong>Referral Codes:</strong> The app generates a unique alphanumeric referral code (e.g., <code>TR-XXXXXX</code>) associated with your game profile.</li>
-        <li><strong>Referral Bonuses:</strong> When another player installs the app and redeems your referral code during initial onboarding, our system records the redemption to credit both the referral owner and new player with +250 bonus coins.</li>
-        <li><strong>No Contact Harvesting:</strong> TapWin <em>never</em> accesses, reads, uploads, or harvests your phone contacts or personal address book. Referral invitations are transmitted solely via the native Android system share dialog that you choose to open.</li>
+        <li><strong>Payout Request Details:</strong> When you voluntarily submit a request in the <em>"Request Your Payment"</em> section, we collect the information you enter into the form:
+          <ul>
+            <li><strong>Account Holder Full Name</strong></li>
+            <li><strong>Phone / Mobile Number</strong></li>
+            <li><strong>Selected Payment Method:</strong> Easypaisa, JazzCash, Bank Account, or UPI</li>
+            <li><strong>Account Identifier:</strong> Mobile Wallet Number (Easypaisa/JazzCash), Bank Name &amp; Account Number / IBAN, or UPI ID (e.g., <code>name@upi</code>)</li>
+            <li><strong>Optional Notes:</strong> Any optional branch, CNIC, or IFSC reference notes you choose to provide, along with the requested coin and currency amount.</li>
+          </ul>
+        </li>
+        <li><strong>Purpose &amp; Storage:</strong> This data is stored locally in your device's Room database (<code>payment_requests</code>) and synchronized over encrypted HTTPS/TLS to Google Firebase Firestore (<code>/payment_requests</code>) strictly so the administrator can review, verify, and update the status (<code>PENDING</code>, <code>APPROVED</code>, or <code>PAID</code>) of your payout request. We never sell or share your phone number or payout details with third-party marketers.</li>
       </ul>
 
-      <h3>C. Device, Network & Diagnostic Information</h3>
+      <h3>C. Optional Account Authentication (Google Sign-In)</h3>
       <ul>
-        <li><strong>Network State:</strong> TapWin monitors whether your device has an active internet connection (Wi-Fi or Mobile Data). Active connectivity is required to access gameplay levels, verify referral codes, serve ads, and sync balances.</li>
-        <li><strong>Device Identifiers & Performance:</strong> Screen resolution, Android operating system version, and anonymous performance logs to ensure smooth 60fps animations.</li>
+        <li><strong>Google Account Credentials:</strong> When you sign in with Google via Android Jetpack Credential Manager, we receive your verified Google User ID (UID) and email address via Firebase Authentication to bind your cloud save profile, synchronize your coins, levels, and payment requests across devices, and authenticate administrative access.</li>
+        <li><strong>Play Without Sign-In:</strong> You may also play Levels 1–1,000, complete Daily Missions, and use local features without signing into a Google Account.</li>
       </ul>
 
-      <h3>D. Optional Account Authentication (Google Sign-In)</h3>
+      <h3>D. Referral &amp; Invite Information</h3>
       <ul>
-        <li><strong>Google Account Identifier:</strong> If you use Google Sign-In via Jetpack Credential Manager (or Admin Sign-In), we receive your verified Google User ID and email to associate your cloud save file and authenticate administrative privileges.</li>
+        <li><strong>Referral Codes:</strong> The app generates a unique referral code (e.g., <code>TR-XXXXXX</code>) for your profile and records redeemed referral codes to award +250 bonus coins to both the new player and the referral owner.</li>
+        <li><strong>Zero Contact Harvesting:</strong> TapWin <em>never</em> requests permission to read your contacts or address book. Referral links are shared solely through the native Android system share sheet when you tap Share.</li>
+      </ul>
+
+      <h3>E. Device, Network &amp; Advertising Identifiers</h3>
+      <ul>
+        <li><strong>Network Connectivity:</strong> TapWin checks active network status (Wi-Fi / Mobile Data) via Android connectivity APIs to ensure reliable ad delivery and Firebase cloud synchronization.</li>
+        <li><strong>Advertising ID (AAID):</strong> Google AdMob uses the Android Advertising ID (<code>com.google.android.gms.permission.AD_ID</code>), IP address, and coarse device diagnostics to serve Banner Ads, Interstitial Ads, and Rewarded Video Ads, and to prevent ad fraud.</li>
       </ul>
     </section>
 
     <section>
-      <h2>3. How We Use Your Information</h2>
-      <p>The information we collect is used strictly for the following purposes:</p>
+      <h2>3. Google Play Data Safety Summary</h2>
+      <p>In accordance with Google Play Console Data Safety requirements, below is a summary of data types handled by TapWin:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Data Category</th>
+            <th>Specific Data Types</th>
+            <th>Purpose &amp; Handling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Personal Info</strong></td>
+            <td>Name, Email address, User IDs, Phone number</td>
+            <td>Collected only when you sign in with Google or voluntarily submit a Payment Request (Easypaisa, JazzCash, Bank Account, UPI). Encrypted in transit via TLS.</td>
+          </tr>
+          <tr>
+            <td><strong>Financial Info</strong></td>
+            <td>Payout Account / Wallet / UPI / IBAN identifier</td>
+            <td>Provided voluntarily by the user when submitting a payout request. Used solely for administrative payout review and status tracking.</td>
+          </tr>
+          <tr>
+            <td><strong>App Activity &amp; Performance</strong></td>
+            <td>Level progression (1–1,000), session duration, completion rates</td>
+            <td>Synced to Firebase Firestore (<code>/analytics_telemetry</code>) to back up your progress and balance level difficulty.</td>
+          </tr>
+          <tr>
+            <td><strong>Device or Other IDs</strong></td>
+            <td>Google Advertising ID (AAID)</td>
+            <td>Processed by the Google Mobile Ads (AdMob) SDK for serving Banner, Interstitial, and Rewarded Video advertisements.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>4. How We Use Your Information</h2>
+      <p>We use the collected information strictly for the following operational purposes:</p>
       <ul>
-        <li>To operate, save, and restore your gameplay progress across all 1,000 levels.</li>
-        <li>To calculate and distribute in-game coin rewards for level clears, daily missions, and referral sign-ups.</li>
-        <li>To serve rewarded video ads and interstitial ads in accordance with your gameplay completion.</li>
-        <li>To analyze level completion rates and session durations to balance the 1,000-level mathematical difficulty curve.</li>
-        <li>To prevent fraudulent coin generation, date tampering, or duplicated bonus claims.</li>
+        <li>To save, synchronize, and restore your 1,000-level progression, coins, and currency ledger across local Room storage and Firebase Firestore.</li>
+        <li>To review, verify, and process player payment requests submitted via Easypaisa, JazzCash, Bank Account, or UPI.</li>
+        <li>To calculate and credit in-game coin rewards for level completions, speed bonuses, rewarded video ads, daily missions, and referrals.</li>
+        <li>To display Banner, Interstitial, and Rewarded Video ads via Google AdMob.</li>
+        <li>To prevent clock tampering, duplicate reward claims, and unauthorized access.</li>
       </ul>
     </section>
 
     <section>
-      <h2>4. Third-Party Services & Advertising</h2>
+      <h2>5. Third-Party Services &amp; SDKs</h2>
       <p>
-        TapWin integrates trusted third-party SDKs to provide analytics, backend database storage, and ad monetization. These third parties have their own privacy policies governing data usage:
+        TapWin integrates official Google SDKs for database synchronization, authentication, analytics, and advertising:
       </p>
-
       <div class="highlight-box">
-        <strong>Third-Party Providers:</strong>
+        <strong>Integrated Third-Party Services:</strong>
         <ul>
-          <li><strong>Google AdMob (Google Mobile Ads SDK):</strong> Used to deliver interstitial and rewarded video ads. AdMob may collect and process device advertising IDs (AAID), IP addresses, and coarse diagnostic metrics. Learn more at <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: var(--cyan-neon);">Google Ads Policy</a>.</li>
-          <li><strong>Google Firebase (Firestore, Authentication, Analytics):</strong> Used for secure database storage, cloud synchronization, and gameplay telemetry. Learn more at <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: var(--cyan-neon);">Firebase Privacy & Security</a>.</li>
+          <li><strong>Google AdMob (Google Mobile Ads SDK):</strong> Serves Banner, Interstitial, and Rewarded Video ads. You can reset or opt out of personalized ads at any time in your Android device settings (<em>Settings &gt; Google &gt; Ads</em>). Learn more at <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: var(--cyan-neon);">Google Ads Policy</a>.</li>
+          <li><strong>Google Firebase (Firestore, Authentication, Analytics):</strong> Provides encrypted cloud database storage (<code>/user_profiles</code>, <code>/payment_requests</code>, <code>/exchange_configs</code>, <code>/exchange_transactions</code>, <code>/analytics_telemetry</code>) and Google Sign-In authentication. Learn more at <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: var(--cyan-neon);">Firebase Privacy &amp; Security</a>.</li>
         </ul>
       </div>
     </section>
 
     <section>
-      <h2>5. Virtual Currency & Financial Disclaimer</h2>
+      <h2>6. Virtual Currency &amp; Payout Request Disclaimer</h2>
       <p>
-        TapWin features an in-game virtual currency exchange simulator displaying preview USD calculations (e.g., 1,000 coins = $1.00 USD).
+        TapWin includes an in-game coin-to-currency calculator and a payout request submission form supporting Easypaisa, JazzCash, Bank Account, and UPI.
       </p>
       <p>
-        <strong>Please Note:</strong> Coins, stars, and preview USD values displayed within the game are virtual in-game entertainment items only. They carry no real-world cash value, cannot be withdrawn directly through automated cash dispensers, and do not constitute legal tender or a financial banking instrument unless explicitly approved via authorized developer payout protocols.
-      </p>
-    </section>
-
-    <section>
-      <h2>6. Children's Privacy (COPPA & Google Play Policy)</h2>
-      <p>
-        TapWin complies with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies. TapWin is not directed to children under 13 years of age. We do not knowingly collect personally identifiable information from children under 13. If you believe that a child has provided us with personal information, please contact us immediately at <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a> and we will promptly delete such records.
+        <strong>Important Notice:</strong> In-game coins and preview currency balances are virtual game rewards earned through gameplay, missions, referrals, and rewarded video ads. All submitted payout requests are subject to administrative verification of legitimate gameplay and compliance with our anti-cheat and anti-tamper rules before approval or disbursement.
       </p>
     </section>
 
     <section>
-      <h2>7. Data Retention & Your Rights (Data Deletion)</h2>
+      <h2>7. Children's Privacy (COPPA &amp; Google Play Policy)</h2>
       <p>
-        We retain your game progress for as long as you maintain the application installed on your device or linked to your Google Account.
+        TapWin complies with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies. TapWin is intended for a general audience and is not directed to children under the age of 13. We do not knowingly solicit or collect personal information (such as phone numbers or payment details) from children under 13. If we discover that a child under 13 has submitted personal information, we will delete it immediately upon notification at <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a>.
       </p>
+    </section>
+
+    <section>
+      <h2>8. Data Retention &amp; Your Deletion Rights</h2>
       <p>
-        <strong>Your Data Rights & Deletion:</strong>
+        We retain your game data and payout request history only as long as necessary to provide the app's services and fulfill your requests.
       </p>
       <ul>
-        <li><strong>Instant In-App Reset:</strong> You can wipe all local level progress, mission states, and coin balances at any time by navigating to <em>Settings &gt; Reset Game Data &gt; Reset Everything</em>.</li>
-        <li><strong>Cloud Data Deletion Request:</strong> If you wish to delete your cloud profile or any associated data stored in our Firebase database, email us at <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a> with the subject line <em>"Data Deletion Request - TapWin"</em>. We will process and fulfill your request within 30 days.</li>
+        <li><strong>Instant In-App Data Reset:</strong> You can immediately wipe all local data (including 1,000-level progress, daily missions, coin balances, exchange transactions, and payment requests) at any time inside the app by going to <strong>Settings &gt; Reset Game Data &gt; Reset Everything</strong>.</li>
+        <li><strong>Cloud Account &amp; Data Deletion Request:</strong> To request permanent deletion of your Google-linked cloud profile, wallet records, and payment request history stored in Firebase Firestore, email <a href="mailto:business@shaheerrao.com" style="color: var(--cyan-neon);">business@shaheerrao.com</a> with the subject line <em>"Data Deletion Request - TapWin"</em>. We will permanently erase your cloud records within 7–30 days.</li>
       </ul>
     </section>
 
     <section>
-      <h2>8. Security Safeguards</h2>
+      <h2>9. Security Safeguards</h2>
       <p>
-        We employ industry-standard security measures, including local Android Room database isolation, transport-layer security (TLS 1.3) for network transmissions, and strict zero-trust Firebase Firestore security rules ensuring only authenticated users can access authorized administrative documents.
+        All communication between the TapWin Android app and Google Firebase servers is encrypted in transit using HTTPS / TLS 1.3. Access to cloud documents in Firebase Firestore is restricted by strict zero-trust security rules ensuring that each authenticated user can only read or write their own records.
       </p>
     </section>
 
     <section>
-      <h2>9. Changes to This Privacy Policy</h2>
+      <h2>10. Changes to This Privacy Policy</h2>
       <p>
-        We may update our Privacy Policy periodically to reflect changes in game features, legal requirements, or operational practices. Any modifications will be posted directly to this page with an updated "Effective Date." Continued use of the application following any changes constitutes acceptance of the revised policy.
+        We may update this Privacy Policy from time to time to reflect new features, payment methods, or regulatory requirements. The updated version will always be published on this page with a revised "Effective &amp; Last Updated Date" and inside the app under <em>Settings &gt; Privacy Policy &amp; Contact</em>.
       </p>
     </section>
 
     <div class="contact-card">
-      <h2>10. Contact Us</h2>
-      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact our developer support team at:</p>
+      <h2>11. Contact Us</h2>
+      <p>If you have any questions, support inquiries, or data deletion requests regarding TapWin or this Privacy Policy, please contact us at:</p>
       <a class="email-link" href="mailto:business@shaheerrao.com">business@shaheerrao.com</a>
       <p style="margin-top: 14px; font-size: 13px; color: var(--text-muted);">
         Developer: Shaheer Rao / TapWin Team
@@ -348,7 +411,7 @@
     </div>
 
     <footer>
-      &copy; 2026 TapWin. All rights reserved. • Fast-Paced Reflex Challenge
+      &copy; 2026 TapWin. All rights reserved. • 1,000 Levels Speed Reflex Challenge
     </footer>
   </div>
 </body>
